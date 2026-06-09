@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H N Singh Smarak Vidyalaya</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+    color:#333;
+}
+
+/* Header */
+header{
+    background:#0d47a1;
+    color:white;
+    padding:15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.menu-btn{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* Hero */
+.hero{
+    height:90vh;
+    background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+    url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1600');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content h1{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.hero-content p{
+    font-size:1.2rem;
+    margin-bottom:20px;
+}
+
+.btn{
+    background:#ff9800;
+    color:white;
+    padding:12px 25px;
+    border-radius:5px;
+    text-decoration:none;
+}
+
+/* Sections */
+section{
+    padding:70px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:30px;
+    color:#0d47a1;
+    font-size:2rem;
+}
+
+/* Notice Board */
+.notice-board{
+    background:white;
+    border-radius:10px;
+    padding:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.notice-board li{
+    list-style:none;
+    padding:15px;
+    border-bottom:1px solid #ddd;
+}
+
+/* Gallery */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* Fee Tables */
+.table-container{
+    overflow-x:auto;
+}
+
+.fee-table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.fee-table th{
+    background:#0d47a1;
+    color:white;
+    padding:15px;
+}
+
+.fee-table td{
+    padding:12px;
+    border:1px solid #ddd;
+    text-align:center;
+}
+
+.fee-table tr:nth-child(even){
+    background:#f8f9fa;
+}
+
+/* Forms */
+.form-container{
+    background:white;
+    max-width:700px;
+    margin:auto;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button{
+    background:#0d47a1;
+    color:white;
+    padding:12px 25px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.login-section{
+    background:#eef4ff;
+}
+
+/* Footer */
+footer{
+    background:#0d47a1;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+    .menu-btn{
+        display:block;
+    }
+
+    nav ul{
+        display:none;
+        flex-direction:column;
+        position:absolute;
+        top:70px;
+        right:0;
+        background:#0d47a1;
+        width:220px;
+        padding:20px;
+    }
+
+    nav ul.show{
+        display:flex;
+    }
+
+    .hero-content h1{
+        font-size:2rem;
+    }
+
+    .hero{
+        height:70vh;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🏫 H N Singh Smarak Vidyalaya</div>
+
+    <nav>
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+        <ul id="menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#notice">Notice</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#fees">Fees</a></li>
+            <li><a href="#transport">Transport</a></li>
+            <li><a href="#admission">Admission</a></li>
+            <li><a href="#login">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Welcome to H N Singh Smarak Vidyalaya</h1>
+        <p>Excellence in Education & Character Building</p>
+        <a href="#admission" class="btn">Apply Now</a>
+    </div>
+</section>
+
+<!-- Notice Board -->
+<section id="notice">
+    <h2 class="section-title">Notice Board</h2>
+
+    <div class="notice-board">
+        <ul>
+            <li>📢 Admissions Open for 2025-26</li>
+            <li>📅 Parent Teacher Meeting - 15 July</li>
+            <li>🏆 Annual Sports Day Registration Started</li>
+            <li>📝 Mid-Term Exams Begin from 5 August</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery">
+    <h2 class="section-title">School Gallery</h2>
+
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800">
+        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800">
+        <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?w=800">
+        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=800">
+    </div>
+</section>
+
+<!-- Fee Structure -->
+<section id="fees">
+    <h2 class="section-title">Fee Structure</h2>
+
+    <div class="table-container">
+        <table class="fee-table">
+            <tr>
+                <th>Class</th>
+                <th>Admission Fee</th>
+                <th>Monthly Fee</th>
+                <th>Annual Charges</th>
+            </tr>
+
+            <tr><td>Class 1</td><td>₹5,000</td><td>₹1,500</td><td>₹3,000</td></tr>
+            <tr><td>Class 2</td><td>₹5,000</td><td>₹1,600</td><td>₹3,000</td></tr>
+            <tr><td>Class 3</td><td>₹5,000</td><td>₹1,700</td><td>₹3,000</td></tr>
+            <tr><td>Class 4</td><td>₹5,000</td><td>₹1,800</td><td>₹3,000</td></tr>
+            <tr><td>Class 5</td><td>₹5,000</td><td>₹1,900</td><td>₹3,000</td></tr>
+            <tr><td>Class 6</td><td>₹6,000</td><td>₹2,100</td><td>₹4,000</td></tr>
+            <tr><td>Class 7</td><td>₹6,000</td><td>₹2,200</td><td>₹4,000</td></tr>
+            <tr><td>Class 8</td><td>₹6,000</td><td>₹2,300</td><td>₹4,000</td></tr>
+            <tr><td>Class 9</td><td>₹7,000</td><td>₹2,500</td><td>₹5,000</td></tr>
+            <tr><td>Class 10</td><td>₹7,000</td><td>₹2,700</td><td>₹5,000</td></tr>
+            <tr><td>Class 11</td><td>₹8,000</td><td>₹3,000</td><td>₹6,000</td></tr>
+            <tr><td>Class 12</td><td>₹8,000</td><td>₹3,200</td><td>₹6,000</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- Transport Fee -->
+<section id="transport">
+    <h2 class="section-title">Transportation Fee</h2>
+
+    <div class="table-container">
+        <table class="fee-table">
+            <tr>
+                <th>Distance</th>
+                <th>Monthly Fee</th>
+            </tr>
+
+            <tr><td>0-5 KM</td><td>₹800</td></tr>
+            <tr><td>5-10 KM</td><td>₹1,200</td></tr>
+            <tr><td>10-15 KM</td><td>₹1,600</td></tr>
+            <tr><td>15-20 KM</td><td>₹2,000</td></tr>
+            <tr><td>Above 20 KM</td><td>₹2,500</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- Admission Form -->
+<section id="admission">
+    <h2 class="section-title">Admission Form</h2>
+
+    <div class="form-container">
+        <form id="admissionForm">
+            <input type="text" placeholder="Student Name" required>
+
+            <input type="date" required>
+
+            <select required>
+                <option>Select Class</option>
+                <option>Class 1</option>
+                <option>Class 2</option>
+                <option>Class 3</option>
+                <option>Class 4</option>
+                <option>Class 5</option>
+                <option>Class 6</option>
+                <option>Class 7</option>
+                <option>Class 8</option>
+                <option>Class 9</option>
+                <option>Class 10</option>
+                <option>Class 11</option>
+                <option>Class 12</option>
+            </select>
+
+            <input type="text" placeholder="Parent Name" required>
+            <input type="tel" placeholder="Mobile Number" required>
+            <input type="email" placeholder="Email Address">
+
+            <textarea rows="4" placeholder="Address"></textarea>
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+</section>
+
+<!-- Student Login -->
+<section id="login" class="login-section">
+    <h2 class="section-title">Student Login</h2>
+
+    <div class="form-container">
+        <form id="loginForm">
+            <input type="text" placeholder="Student ID" required>
+            <input type="password" placeholder="Password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 H N Singh Smarak Vidyalaya. All Rights Reserved.</p>
+</footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById("menu").classList.toggle("show");
+}
+
+document.getElementById("admissionForm")
+.addEventListener("submit",function(e){
+    e.preventDefault();
+    alert("Admission Form Submitted Successfully!");
+});
+
+document.getElementById("loginForm")
+.addEventListener("submit",function(e){
+    e.preventDefault();
+    alert("Login Successful (Demo)");
+});
+</script>
+
+</body>
+</html>
